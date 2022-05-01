@@ -19,6 +19,7 @@
 		0B655B53281F0390007E4DC4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B655B52281F0390007E4DC4 /* CardView.swift */; };
 		0B655B55281F08F9007E4DC4 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B655B54281F08F9007E4DC4 /* TrailingIconLabelStyle.swift */; };
 		0B655B57281F0D39007E4DC4 /* ScrumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B655B56281F0D38007E4DC4 /* ScrumsView.swift */; };
+		0B655B59281F2C7C007E4DC4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B655B58281F2C7C007E4DC4 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		0B655B52281F0390007E4DC4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0B655B54281F08F9007E4DC4 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		0B655B56281F0D38007E4DC4 /* ScrumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumsView.swift; sourceTree = "<group>"; };
+		0B655B58281F2C7C007E4DC4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				0B655B52281F0390007E4DC4 /* CardView.swift */,
 				0B655B54281F08F9007E4DC4 /* TrailingIconLabelStyle.swift */,
 				0B655B56281F0D38007E4DC4 /* ScrumsView.swift */,
+				0B655B58281F2C7C007E4DC4 /* DetailView.swift */,
 			);
 			path = Scrumdinger;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B655B51281F000B007E4DC4 /* DailyScrum.swift in Sources */,
+				0B655B59281F2C7C007E4DC4 /* DetailView.swift in Sources */,
 				0B655B55281F08F9007E4DC4 /* TrailingIconLabelStyle.swift in Sources */,
 				0B3F51A8280E286300919193 /* Theme.swift in Sources */,
 				0B655B57281F0D39007E4DC4 /* ScrumsView.swift in Sources */,
