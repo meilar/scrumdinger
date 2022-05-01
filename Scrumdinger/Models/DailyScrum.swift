@@ -5,7 +5,7 @@
 //  Created by Matt Eilar on 5/1/22.
 //
 
-import Foundation
+import SwiftUI
 
 struct DailyScrum {
     var title: String
