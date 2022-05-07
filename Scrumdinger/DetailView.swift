@@ -48,7 +48,7 @@ struct DetailView: View {
         .toolbar {
             Button("Edit") {
                 isPresentingEditView = true
-                scrum.update(from: data)
+                data = scrum.data
             }
         }
         .sheet(isPresented: $isPresentingEditView) {
@@ -61,7 +61,13 @@ struct DetailView: View {
                                 isPresentingEditView = false
                             }
                         }
-                    }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") {
+                            isPresentingEditView = false
+                            scrum.update(from:data)
+                            }
+                        }
+                }
             }
         }
     }
