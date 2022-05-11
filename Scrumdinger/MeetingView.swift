@@ -6,43 +6,45 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct MeetingView: View {
+    @Binding var scrum: DailyScrum
+    @StateObject var scrumTimer = ScrumTimer()
+    
+    private var player: AVPlayer { AVPlayer.sharedDingPlayer }
+    
     var body: some View {
-        VStack {
-            HStack {
-                Text("Seconds Elapsed")
-                    .font(.caption)
-                Label("300", systemImage: "hourglass.bottomhalf.fill")
-            }
-            ProgressView(value: 5, total: 15)
-            Circle()
-                .strokeBorder(lineWidth: 24, antialiased: true)
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel("Time Remaining")
-                .accessibilityValue("10 minutes")
-            HStack {
-                Text("Speaker 1 of 3")
-                Button(action: {}) {
-                    Image(systemName: "forward.fill")
-                }
-            }
-            Spacer()
-            HStack {
-                Text("Seconds Remaining")
-                    .font(.caption)
-                Spacer()
-                Label("600", systemImage: "hourglass.bottomhalf.fill")
-                    .accessibilityLabel("Next speaker")
+        ZStack {
+            RoundedRectangle(cornerRadius: 16.0)
+                .fill(scrum.theme.mainColor)
+            VStack {
+                MeetingHeaderView(secondsElapsed: scrumTimer.secondsElapsed, secondsRemaining: scrumTimer.secondsRemaining, theme: scrum.theme)
+                Circle()
+                    .strokeBorder(lineWidth: 24, antialiased: true)
+                MeetingFooterView(speakers: scrumTimer.speakers, skipAction: scrumTimer.skipSpeaker)
             }
         }
         .padding()
+        .foregroundColor(scrum.theme.accentColor)
+        .onAppear {
+            scrumTimer.reset(lengthInMinutes: scrum.lengthInMinutes, attendees: scrum.attendees)
+            scrumTimer.speakerChangedAction = {
+                player.seek(to: .zero)
+                player.play()
+            }
+            scrumTimer.startScrum()
+        }
+        .onDisappear {
+            scrumTimer.stopScrum()
+        }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct MeetingView_Previews: PreviewProvider {
     static var previews: some View {
-        MeetingView()
+        MeetingView(scrum: .constant(DailyScrum.sampleData[0]))
             .previewInterfaceOrientation(.portrait)
     }
 }
